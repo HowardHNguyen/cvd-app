@@ -38,7 +38,7 @@ except Exception as e:
 class HealthAssessment(BaseModel):
     id: Optional[str] = Field(default_factory=lambda: str(uuid.uuid4()))
     age: int = Field(..., ge=20, le=100, description="Age in years")
-    gender: str = Field(..., regex="^(male|female)$", description="Gender")
+    gender: str = Field(..., pattern="^(male|female)$", description="Gender")
     systolic_bp: int = Field(..., ge=80, le=300, description="Systolic blood pressure (mmHg)")
     total_cholesterol: int = Field(..., ge=100, le=500, description="Total cholesterol (mg/dL)")
     hdl_cholesterol: int = Field(..., ge=10, le=150, description="HDL cholesterol (mg/dL)")
