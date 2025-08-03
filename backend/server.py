@@ -46,7 +46,7 @@ class HealthAssessment(BaseModel):
     has_diabetes: bool = Field(..., description="Diabetes status")
     family_history: bool = Field(..., description="Family history of heart disease")
     bmi: float = Field(..., ge=15.0, le=50.0, description="Body Mass Index")
-    physical_activity: str = Field(..., regex="^(sedentary|light|moderate|vigorous)$", description="Physical activity level")
+    physical_activity: str = Field(..., pattern="^(sedentary|light|moderate|vigorous)$", description="Physical activity level")
     created_at: Optional[datetime] = Field(default_factory=datetime.now)
 
 class CVDRiskResult(BaseModel):
